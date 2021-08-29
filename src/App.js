@@ -1,10 +1,13 @@
+import React from "react";
 import './App.css';
-import Homepage from './pages/Homepage';
+import Routes from './routes';
 
-function App() {
+class App extends React.Component {
+  render() {
   return (
-    <Homepage/>
+        <Routes />
   );
+}
 }
 
 export default App;

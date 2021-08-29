@@ -1,14 +1,38 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
 
 class Form extends React.Component {
+   constructor(props){
+    super(props);
+    this.state={
+        name: "",
+
+  };
+ };
     render () {
-        return(
-            <form>
-               <fieldset>
-                  <legend>{this.props.tituloDoForm}</legend>
-                    <label for="nome">{this.props.nome}</label>
-                    <input type="text" id="nome" className="input" placeholder="Preencha o nome da criança" />
-                    <br/>
+      return(
+          <>
+        <form>
+
+         <TextField 
+            label="Name"
+            type="text"
+            name="name"
+            htmlFor="name"
+            value={this.props.name}
+            placeholder="Preencha o nome da criança"
+            required
+            fullWidth
+          />
+
+          <TextField 
+            label="Date"
+            type="date"
+            name="date"
+            fullWidth
+            
+          />
+                    
                     <label for="data">{this.props.dtNasc}</label>
                     <input type="text" id="data" placeholder="Informe a data de nascimento" />
                     <br/>
@@ -36,8 +60,9 @@ class Form extends React.Component {
                     <textarea>{this.props.observacoes}</textarea>
                     <br/>
                     <input type="submit"/>
-                </fieldset>
+               {/*  </fieldset> */}
             </form>
+            </>
         );
     }
 }
