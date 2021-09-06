@@ -6,46 +6,77 @@ class Form extends React.Component {
     super(props);
     this.state={
         name: "",
+        date: "",
+        avisar: ["Pai", "Mãe", "Tio", "Tia", "Avós"],
+
 
   };
  };
+ componentDidMount () {
+  const posicao = this.props.avisar;
+  this.setState({
+    posicao,
+  });
+ }
     render () {
       return(
           <>
         <form>
 
          <TextField 
-            label="Name"
+            label={this.props.lblName}
             type="text"
             name="name"
             htmlFor="name"
             value={this.props.name}
-            placeholder="Preencha o nome da criança"
+            placeholder={this.props.plch_name}
             required
             fullWidth
           />
 
           <TextField 
-            label="Date"
+            label={this.props.lblDate}
             type="date"
             name="date"
             fullWidth
             
           />
-                    
-                    <label for="data">{this.props.dtNasc}</label>
-                    <input type="text" id="data" placeholder="Informe a data de nascimento" />
-                    <br/>
-                    <label for="responsavel">{this.props.responsavel}</label>
-                    <input type="text" id="responsavel" placeholder="Informe o nome do responsavel" />
-                    <br/>
-                    <label for="telefone">{this.props.telefone}</label>
-                    <input type="text" id="telefone" placeholder="Informe o telefone do responsavel" />
-                    <br/>
-                    <label for="emergencia">{this.props.emergencia}</label>
-                    <input type="text" id="emergencia" placeholder="ex: papai mamãe avo tio...." />
-                    <br/>
-                    <input type="checkbox" required/>Possui alguma restição alimentar?
+
+          <TextField 
+             label={this.props.lblResponsavel}
+             type="text"
+             name="responsabel"
+             htmlFor="responsavel"
+             value={this.props.responsavel}
+             placeholder={this.props.plch_responsavel}
+             required
+             fullWidth
+          
+          />
+          <TextField 
+               label="Telefone"
+               type="tel"
+               name="telefone"
+               htmlFor="telefone"
+               value={this.props.telefone}
+               required
+               fullWidth
+          
+          />
+          <TextField 
+              label={this.props.lblEmergencia}
+              select
+              value={this.state.posicao} 
+              name="emergencia" 
+              fullWidth
+          />
+          <TextField 
+            type="checkbox"
+            text="Possui alguma restição alimentar?"
+            required
+          />
+
+                    {/* <input type="checkbox" required/>Possui alguma restição alimentar? */}
                     <br/>
                     <label for="restri">{this.props.restricoes}</label>
                     <input type="text" id="restri" disabled placeholder="Informe quais restrições a criança tem" />

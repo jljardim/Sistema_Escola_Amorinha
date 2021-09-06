@@ -5,30 +5,33 @@ import IsButton from "../../components/Button";
 /* import StudentList from "../../components/StudentList";
 import StudentListItem from "../../components/StudentListItem"; */
 import Header from "../../components/Header";
-import SearchBar from "../../components/SearchBar";
 
 class Homepage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "Studants Directory",
+            title: "Página do Estudante",
             onClick: "",
+           // btnName:"Inicio",
         }
     }
     render () {
         return (
         <>
-            <Header title={this.state.title}/>
-            <SearchBar onSearch={this.onSearch} />
+            <Header title={this.state.title} />
             <br />
             <Link to="/register"> 
             <IsButton  title="Cadastro"/>
             </Link>
 
-           {/*  <Button 
-               title="Cadastro" 
-               onClick="/register"
-               /> */}
+            <Link to="/editing"> 
+            <IsButton  title="Editar"/>
+            </Link>
+
+            <Link to="/list"> 
+            <IsButton  title="Listar"/>
+            </Link>
+
           
         </>
         );

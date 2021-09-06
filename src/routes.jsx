@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import EditingStudantPage from "./pages/EditingEstudentPage";
 import Homepage from "./pages/Homepage";
 import RegisterStudantPage from "./pages/RegisterStudentPage";
+import StudentList from "./pages/ListStudentPage";
 
 class Routes extends React.Component {
 
@@ -11,19 +12,13 @@ class Routes extends React.Component {
         return (  
             <Router>
                 <Switch>
-                    <Route path="/" exact>
-                        <Homepage />
-                    </Route>
+                    <Route path="/" component={Homepage} exact />
 
-                {/*     <Route path="/register">
-                        <RegisterStudantPage />
-                    </Route> */}
                     <Route path="/register" component={RegisterStudantPage}/>
 
-                    <Route path="/editing">
-                        <EditingStudantPage />
-                    </Route>
+                    <Route path="/editing" component={EditingStudantPage}/>
 
+                    <Route path="/list" component={StudentList}/>
                     <Route>
                         404 NOT FOUND
                     </Route>

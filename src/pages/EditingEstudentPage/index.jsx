@@ -1,4 +1,6 @@
 import React from "react";
+import Form from "../../components/Form";
+import Header from "../../components/Header";
 
 class EditingStudantPage extends React.Component {
     constructor(props) {
@@ -7,7 +9,12 @@ class EditingStudantPage extends React.Component {
     }
     render() { 
         return ( 
-            <p>Ola</p>
+            <>
+           <Header
+             title="Editar Registro de Alunos" 
+             init="/" />
+             <Form />
+             </>
          );
     }
 }
